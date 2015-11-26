@@ -8,21 +8,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class CrimeActivity extends Activity {
+public class CrimeActivity extends SingleFragmentActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crime);
-        
-        FragmentManager fm = getFragmentManager();
-        Fragment fragement = fm.findFragmentById(R.id.fragmentContainer);
-        
-        if (fragement == null) {
-			fragement = new CrimeFragment();
-			fm.beginTransaction().add(R.id.fragmentContainer, fragement).commit();
-			
-		}
-    }
+	@Override
+	protected Fragment createFragment() {
+		return new CrimeFragment();
+	}
+
+    
 
 }
